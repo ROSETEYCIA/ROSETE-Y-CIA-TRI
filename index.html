@@ -1,0 +1,85 @@
+<link rel="shortcut icon" href="admin/images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="admin/images/favicon.ico" type="image/x-icon">
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from triton-dispenser.com/triton3/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 02 Jun 2025 20:59:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8">
+  <title>Triton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- The styles -->
+    <link id="bs-css" href="admin/charisma/css/bootstrap-cerulean.min.css" rel="stylesheet">
+    <link href="admin/charisma/css/charisma-app.css" rel="stylesheet">
+    <script src="admin/charisma/bower_components/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="ch-container">
+	<div class="row">
+		<div class="row">
+			<div class="col-md-12 center login-header">
+			    <h2>Bienvenido</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="well col-md-5 center login-box" id="login">
+			    <h3>Iniciar sesión</h3><br>
+			    <!--<form class="form-horizontal" action="" method="post">-->
+                <form role="form" method="post" id="checkUser">
+			    <fieldset>
+			        <div class="input-group input-group-lg">
+			            <span class="input-group-addon"><i class="glyphicon glyphicon-user red"></i></span>
+			            <input type="text" class="form-control" name="username" placeholder="Usuario" required="required">
+			        </div>
+			        <div class="clearfix"></div><br>
+			        <div class="input-group input-group-lg">
+			            <span class="input-group-addon"><i class="glyphicon glyphicon-lock red"></i></span>
+			            <input type="password" class="form-control" name="password" placeholder="Contraseña" required="required">
+			        </div>
+			        <div class="clearfix"></div>
+			        <p class="center col-md-5">
+			            <button type="submit" name="submit" value=" Entrar " class="btn btn-primary">Entrar</button>
+			        </p>
+			    </fieldset>
+			    </form>
+			    			</div>
+		</div>
+	</div>
+</div>
+<script src="admin/charisma/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="admin/charisma/js/charisma.js"></script>
+<script type="text/javascript">
+    $("#checkUser").submit(function(e){
+        e.preventDefault();
+        
+        console.log('send form');
+        $.post("login.html", $("#checkUser").serialize(), function(data){
+            console.log('data1: ' + data);
+            if(data == "1"){
+                console.log("Login");
+                window.location.replace('admin/welcome.html');
+            } else{
+                console.log("Usuario no encontrado");
+            }
+        });
+    });
+
+    $(document).ready(function(){
+        //console.log('send form');
+        //window.location.replace('admin/welcome.php');
+    });
+
+    /*console.log('start');
+    setTimeout(function(){
+        console.log('timeout');
+        window.location.replace('admin/welcome.php');
+    }, 5000);*/
+</script>
+</body>
+
+
+<!-- Mirrored from triton-dispenser.com/triton3/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 02 Jun 2025 20:59:28 GMT -->
+</html>
